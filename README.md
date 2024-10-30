@@ -68,19 +68,23 @@ Example Question:
 ```text
 How many inmates are currently in the system? 
 ```
+![image](https://github.com/user-attachments/assets/05c32f1d-82c4-4b54-92ba-94160a7244df)
 
 ---
 
 ## 📸 Screenshots
 
 ### **Login Page**
-![Login Page](https://via.placeholder.com/500x300?text=Login+Page+Screenshot)
+![image](https://github.com/user-attachments/assets/c5d91e8e-7e89-4357-b0a1-e4a50edf553e)
 
 ### **Dashboard Overview**
-![Dashboard](https://via.placeholder.com/500x300?text=Dashboard+Screenshot)
+![image](https://github.com/user-attachments/assets/1b698d01-6cc1-466c-adb2-fc7b8b9d57b5)
 
 ### **Query Interface**
-![Query Page](https://via.placeholder.com/500x300?text=Query+Interface+Screenshot)
+
+![image](https://github.com/user-attachments/assets/05c32f1d-82c4-4b54-92ba-94160a7244df)
+
+
 
 ---
 
