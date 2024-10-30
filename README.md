@@ -1,5 +1,4 @@
-# Create the complete README content as a markdown string
-readme_content = """
+
 # 🏢 Prison Management System
 
 A comprehensive **Prison Management System** designed to manage inmates, visitors, and various administrative tasks. With an intuitive dashboard, query interface, and secure login, this app aims to streamline the operations in correctional facilities.
@@ -41,3 +40,51 @@ A comprehensive **Prison Management System** designed to manage inmates, visitor
    ```bash
    git clone https://github.com/pranav698/prison-management.git
    cd prison-management
+   ```
+
+2. **Install Dependencies** (if using Python backend):
+   ```bash
+   pip install Flask==2.3.2 Flask-Cors==3.0.10 mysql-connector-python==8.0.33
+   ```
+
+3. **Start the Backend**:
+   ```bash
+   python app.py
+   ```
+
+4. **Open the HTML Files**:
+   - Start with `login.html` for user authentication.
+   - Enter the Username and password as "trial".
+
+
+---
+
+## 📊 Output
+-**Login Page**:If the user enters username and password then it leads to other pages.
+- **Dashboard View**: Displays total inmates, visitors, and crime distribution.
+- **Query Results**: Users can input queries to view inmate details dynamically.
+  
+Example Question:
+```text
+How many inmates are currently in the system? 
+```
+
+---
+
+## 📸 Screenshots
+
+### **Login Page**
+![Login Page](https://via.placeholder.com/500x300?text=Login+Page+Screenshot)
+
+### **Dashboard Overview**
+![Dashboard](https://via.placeholder.com/500x300?text=Dashboard+Screenshot)
+
+### **Query Interface**
+![Query Page](https://via.placeholder.com/500x300?text=Query+Interface+Screenshot)
+
+---
+
+Feel free to explore, contribute, or reach out if you have any suggestions! 😊  
+📧 Contact: [suryapranav55@gmail.com](mailto:suryapranav55@gmail.com) | [GitHub](https://github.com/pranav698/prison-management) 
+
+---
