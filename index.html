@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prison Management System Query</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      
+    }
+
+    body {
+      font-family: Poppins, sans-serif;
+      background-color: #000;
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: 55px;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-right: 2px solid rgba(255, 255, 255, 0.2);
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: width 0.3s;
+      overflow: hidden;
+    }
+
+    .sidebar:hover {
+      width: 240px;
+    }
+
+    .sidebar-heading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      width: 100%;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.2);
+      transition: opacity 0.3s;
+    }
+
+    .sidebar:hover .sidebar-heading h2 {
+      opacity: 1;
+    }
+
+    .sidebar-heading h2 {
+      font-size: 20px;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .sidebar-menu {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .sidebar-menu ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar-menu li {
+      margin: 10px 0;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .sidebar-menu li:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar-menu li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding-left: 10px;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: translateX(-20px);
+    }
+
+    .sidebar:hover li a {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .sidebar-menu li i {
+      font-size: 24px;
+      margin-right: 10px;
+      color: white;
+    }
+
+    .social-media {
+      position: absolute;
+      bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    .sidebar:hover .social-media {
+      flex-direction: row;
+    }
+
+    .social-media a {
+      color: white;
+      transform: scale(1.4);
+    }
+
+    /* Main Content Styles */
+    .content {
+      margin-left: 80px;
+      flex: 1;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      
+      transition: margin-left 0.3s;
+    }
+
+    .sidebar:hover ~ .content {
+      margin-left: 240px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+
+    .input {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      transform: scale(1.2);
+      margin-bottom: 40px;
+    }
+
+    input {
+      width: 600px;
+      max-height: 80px;
+      height: 100%;
+      padding: 10px;
+      background-color: #000;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      color: white;
+      font-size: 13px;
+    }
+
+    input::placeholder {
+      font-family: Poppins, sans-serif;
+    }
+
+    button {
+      margin-left: 10px;
+      border-radius: 10px;
+      padding: 8px;
+      width: 100px;
+      font-size: 12px;
+      font-family: Poppins;
+      background-color: #000;
+      color: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      height: 37px;
+      transition: all 0.3s;
+    }
+    button:hover{
+      border: 1px solid white;
+      color: white;
+      scale: (1.1);
+    }
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 80%;
+      max-width: 300px;
+      color: white;
+    }
+    .resultTable{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      background-color: #000;
+    }
+    /* Index page responsive styles */
+    @media (max-width: 768px) {
+      .sidebar-menu {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .sidebar-menu a {
+        padding: 8px 15px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        padding: 10px;
+      }
+
+      .resultTable {
+        overflow-x: scroll;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-heading">
+      <h2>Prison Management</h2>
+    </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li><i class='bx bxs-dashboard'></i><a href="dashboard.html">Dashboard</a></li>
+        <li><i class='bx bx-search'></i><a href="#">Query Input</a></li>
+      </ul>
+    </div>
+    <div class="social-media">
+      <a href="#"><i class='bx bxl-github'></i></a>
+      <a href="#"><i class='bx bxl-gmail'></i></a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h1>Prison Management System</h1>
+    <div class="input">
+      <input type="text" id="queryInput" placeholder="Enter your query here" />
+      <button onclick="sendQuery()">Run Query</button>
+    </div>
+    <div id="resultTable" class="resultTable"></div>
+  </div>
+
+  <script>
+    async function sendQuery() {
+      const query = document.getElementById('queryInput').value;
+      const response = await fetch('http://localhost:5000/query', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ question: query }),
+      });
+
+      const data = await response.json();
+      displayTable(data);
+    }
+
+    function displayTable(data) {
+      let table = '<table><tr>';
+      for (let key in data[0]) {
+        table += `<th>${key}</th>`;
+      }
+      table += '</tr>';
+      data.forEach(row => {
+        table += '<tr>';
+        for (let key in row) {
+          table += `<td>${row[key]}</td>`;
+        }
+        table += '</tr>';
+      });
+      table += '</table>';
+      document.getElementById('resultTable').innerHTML = table;
+    }
+  </script>
+
+</body>
+</html>
